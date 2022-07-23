@@ -111,13 +111,19 @@
                         </table></div>
                 </div>
             </template>
-            <template x-if="(tab === 2 || tab === 0 ) && !reviewTorrent">
+            <template x-data="{filter: 0}" x-if="(tab === 2 || tab === 0 ) && !reviewTorrent">
                 <div class="block" style="
                                         margin: 0 !important;
                                         border-radius: 0 !important;
                                         border: none !important;
                                         box-shadow: none !important;">
-                    <div><p class="h3">Postponed Torrents</p></div>
+                    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; align-items: baseline; padding-right: 25px; margin-bottom: -12px;">
+                        <div>
+                            <p class="h3" >Postponed Torrents</p>
+                        </div>
+                        <div><input class="form__checkbox" type="radio" :value="{{auth()->user()->id}}" x-model="filter"><label>Only Mine</label><input class="form__checkbox" type="radio" :value="0" x-model="filter"><label>All</label>
+                        </div>
+                    </div>
                     <hr />
                     <div class="table-responsive">
                         <table class="table table-condensed table-striped table-bordered">
@@ -136,6 +142,7 @@
                             </thead>
                             <tbody>
                             @foreach($postponed as $p)
+                                <template x-if="filter == 0 || filter == {{$p->moderated_by}}">
                                 <tr>
                                     <td class="text-center">@if( $p->updated_at->greaterThan($p->moderated_at))
                                             <i class="fas fa-check-circle" style="color: #209e05"></i>
@@ -166,6 +173,7 @@
                                         </button>
                                     </td>
                                 </tr>
+                                </template>
                             @endforeach
                             </tbody>
                         </table>
