@@ -131,24 +131,43 @@ class TorrentController extends Controller
         }
 
         $playlists = $user->playlists;
-
-        return \view('torrent.torrent', [
-            'torrent'            => $torrent,
-            'comments'           => $comments,
-            'user'               => $user,
+        if(!$request->query('iframe')) {
+            return \view('torrent.torrent', [
+                'torrent' => $torrent,
+                'comments' => $comments,
+                'user' => $user,
+                'personal_freeleech' => $personalFreeleech,
+                'freeleech_token' => $freeleechToken,
+                'meta' => $meta,
+                'trailer' => $trailer,
+                'platforms' => $platforms,
+                'total_tips' => $totalTips,
+                'user_tips' => $userTips,
+                'featured' => $featured,
+                'mediaInfo' => $mediaInfo,
+                'uploader' => $uploader,
+                'last_seed_activity' => $lastSeedActivity,
+                'playlists' => $playlists,
+                'audits' => $audits,
+            ]);
+        }
+        return \view('torrent.torrent_iframe', [
+            'torrent' => $torrent,
+            'comments' => $comments,
+            'user' => $user,
             'personal_freeleech' => $personalFreeleech,
-            'freeleech_token'    => $freeleechToken,
-            'meta'               => $meta,
-            'trailer'            => $trailer,
-            'platforms'          => $platforms,
-            'total_tips'         => $totalTips,
-            'user_tips'          => $userTips,
-            'featured'           => $featured,
-            'mediaInfo'          => $mediaInfo,
-            'uploader'           => $uploader,
+            'freeleech_token' => $freeleechToken,
+            'meta' => $meta,
+            'trailer' => $trailer,
+            'platforms' => $platforms,
+            'total_tips' => $totalTips,
+            'user_tips' => $userTips,
+            'featured' => $featured,
+            'mediaInfo' => $mediaInfo,
+            'uploader' => $uploader,
             'last_seed_activity' => $lastSeedActivity,
-            'playlists'          => $playlists,
-            'audits'             => $audits,
+            'playlists' => $playlists,
+            'audits' => $audits,
         ]);
     }
 
