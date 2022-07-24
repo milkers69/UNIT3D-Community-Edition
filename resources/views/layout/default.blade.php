@@ -23,9 +23,6 @@
         </ul>
     </nav>
     @include('partials.alerts')
-    @if (Session::has('achievement'))
-        @include('partials.achievement_modal')
-    @endif
     @if ($errors->any())
         <div id="ERROR_COPY" style="display: none;">
             @foreach ($errors->all() as $error)
@@ -57,7 +54,9 @@
     @endif
 </main>
 @include('partials.footer')
-
+@if (Session::has('achievement'))
+    @include('partials.achievement_modal')
+@endif
 <script src="{{ mix('js/app.js') }}" crossorigin="anonymous"></script>
 <script src="{{ mix('js/unit3d.js') }}" crossorigin="anonymous"></script>
 <script src="{{ mix('js/alpine.js') }}" crossorigin="anonymous" defer></script>
