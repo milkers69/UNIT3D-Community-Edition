@@ -10,6 +10,7 @@ class RepackSubscription extends Model
     {
         return $this->belongsTo(ModerationAction::class, 'action_id');
     }
+
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
