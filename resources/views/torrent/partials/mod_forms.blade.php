@@ -15,7 +15,7 @@
                 </p>
             </div>
             <div class="form__group">
-                                                            <textarea id="staff_note" name="staff_note"
+                                                            <textarea style="max-height: 100px;" id="staff_note" name="staff_note"
                                                                       class="form__textarea" placeholder=""></textarea>
                 <label class="form__label form__label--floating"
                        for="staff_note">
@@ -23,7 +23,7 @@
                 </label>
             </div>
             <div class="form__group">
-                                                            <textarea id="private_msg" name="private_msg"
+                                                            <textarea  style="max-height: 100px;" id="private_msg" name="private_msg"
                                                                       class="form__textarea" placeholder=""></textarea>
                 <label class="form__label form__label--floating"
                        for="private_msg">
@@ -32,7 +32,7 @@
             </div>
             <template x-if="moderateTorrent.history">
                 <div class="form__group">
-                    <textarea id="public_msg" name="public_msg" class="form__textarea" placeholder=""></textarea>
+                    <textarea  style="max-height: 100px;" id="public_msg" name="public_msg" class="form__textarea" placeholder=""></textarea>
                     <label class="form__label form__label--floating" for="public_msg">
                         Public Message to Users with History
                     </label>
@@ -41,7 +41,7 @@
             <p class="form__group">
                 <input type="checkbox" class="form__checkbox" id="auto_reject"
                        name="auto_reject" :value="true" x-model="autoreject">
-                <label for="auto_reject">Auto-Reject & Delete if Not
+                <label  class="form__label" for="auto_reject">Auto-Reject & Delete if Not
                     Updated</label>
             </p>
             <template x-if="autoreject">
@@ -66,7 +66,7 @@
             </template>
             <template x-if="autoreject && moderateTorrent.history">
                 <div class="form__group">
-                    <textarea id="delete_msg" name="delete_msg" class="form__textarea" placeholder=""></textarea>
+                    <textarea style="max-height: 100px;" id="delete_msg" name="delete_msg" class="form__textarea" placeholder=""></textarea>
                     <label class="form__label form__label--floating" for="delete_msg">
                         Auto Reject: Message to Users with History
                     </label>
@@ -76,7 +76,7 @@
                 <p class="form__group">
                     <input type="checkbox" class="form__checkbox"
                            id="repack_sub" name="repack_sub">
-                    <label for="repack_sub">Auto-Reject: Enroll History for
+                    <label class="form__label" for="repack_sub">Auto-Reject: Enroll History for
                         Repack Notification</label>
                 </p>
             </template>
@@ -130,7 +130,7 @@
                 <div class="form__group">
                     <input type="checkbox" class="form__checkbox"
                            id="repack_sub" name="repack_sub">
-                    <label for="repack_sub">
+                    <label class="form__label" for="repack_sub">
                         Enroll History for Repack Notification
                     </label>
                 </div>

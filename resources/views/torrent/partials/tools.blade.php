@@ -187,7 +187,7 @@
     </div>
     <template x-if="moderateTorrent">
         <div style="display: flex; justify-content: center; align-items: center; background-color: #0d0d0daa;" class="modal modal-open" role="dialog">
-            <div class="modal-content" style="max-width: 600px; max-height: 90vh; overflow-y: auto; position: relative;">
+            <div class="modal-content" style="min-width: 95vw !important; width:95vw; max-width: 600px; max-height: 90vh; overflow-y: auto; position: relative;">
                 @include('torrent.partials.mod_forms')
                 <div style="position: absolute; top: 10px; right: 10px; width: fit-content;">
                     <a style="color: #FF0000; font-weight: bold;" href="#" @click.prevent="moderateTorrent = false"><i class="far fa-window-close"></i></a>
